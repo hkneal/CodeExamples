@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+  <head>
+    <meta charset="utf-8">
+    <title>Update Animal</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'animalRescue_app/css/main.css' %}" media="screen" title="no title"  charset="utf-8">
+    <link rel="stylesheet" href="{% static 'animalRescue_app/css/update.css' %}" media="screen" title="no title"  charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.typekit.net/hnw2qge.css">
+    <style>
+       #map {
+        height: 400px;
+        /* width: 100%; */
+       }
+
+       #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+    </style>
+    <script>
+      (function(d) {
+        var config = {
+          kitId: 'hnw2qge',
+          scriptTimeout: 3000,
+          async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
+    <script>
+          function initMap() {
+            var uluru = {lat: 38.207089, lng: -122.527654};
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 9,
+              center: uluru
+            });
+
+            var geocoder = new google.maps.Geocoder();
+            var marker;
+
+            document.getElementById('submit').addEventListener('click', function() {
+              geocodeAddress(geocoder, map, marker);
+            });
+
+            function geocodeAddress(geocoder, resultsMap, marker) {
+              var address = document.getElementById('id_location').value;
+              geocoder.geocode({'address': address}, function(results, status) {
+                if (status === 'OK') {
+                  placeMarker(results[0].geometry.location, resultsMap);
+                  document.getElementById('id_location').value = (results[0].formatted_address);
+                } else {
+                  alert('Geocode was not successful for the following reason: ' + status);
+                }
+              });
+            }
+
+            map.addListener('click', function(e) {
+              placeMarker(e.latLng, map);
+              geocoder.geocode({
+                'latLng': e.latLng
+              }, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                  if (results[0]) {
+                    var myLocation = (results[0].formatted_address);
+                    // console.log(myLocation);
+                    document.getElementById('id_location').value = myLocation;
+                  }
+                }
+              });
+            });
+
+            function placeMarker(position, map) {
+              if (marker == null) {
+                 marker = new google.maps.Marker({
+                    position: position,
+                    map: map
+                });
+              } else {
+                marker.setPosition(position);
+                }
+              map.panTo(position);
+              map.setZoom(18);
+              // var lat = marker.getPosition().lat();
+              // var lng = marker.getPosition().lng();
+              // console.log(lat);
+              // console.log(lng);
+              // console.log(pos);
+            }
+          }
+        </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBV4Czu40rp-vwwqoKo2N9E5gj6XSBe_NY&callback=initMap">
+    </script>
+  </head>
+  <body>
+    <header class="menuHeader">
+      <a href="{% url 'home' %}">
+        <img class="headerImg" src="{% static 'uploads/logo1.png' %}" alt="">
+        <!-- <h1 id="title">North California Animal Rescue</h1></a> -->
+        <nav class="menuNav">
+          <a href="{% url 'home' %}">Home</a>
+          <a href="{% url 'adoptaPet' %}">Adopt a Pet</a>
+          <a href="{% url 'volunteer'%}">Volunteer</a>
+          <a href="{% url 'donate' %}">Donate</a>
+          <a href="{% url 'registerAnimal' %}">Register an Animal</a>
+          <a href="{% url 'successStories'%}">Success Stories</a>
+          {% if loggedIn %}
+            <a href="{% url 'logoutUser' %}">Logout</a>
+          {% endif %}
+        </nav>
+    </header>
+    {% if error_message %}
+      <div class="alert alert-danger" role="alert">
+        {{ error_message }}
+      </div>
+    {% endif %}
+    {% if success_message %}
+      <div class="alert alert-success" role="alert">
+        {{ success_message }}
+      </div>
+    {% endif %}
+    <div class="animalPic">
+      <img id='animalPic' src="{{ animal.image.url }}" alt="">
+    </div>
+    <fieldset class="registerFieldset">
+      <legend class="registerLegend">Update Animal</legend>
+      <div class="formDiv">
+        <form class="addAnimal" action="{% url 'update_animal' animal.id %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <!-- {{ FileFieldForm }} -->
+          {{ updateAnimalForm }}
+          <button id="registerButton" type="submit" name="button">Update Animal</button>
+        </form>
+        <button id=submit type="button" name="button">Map Address</button>
+      </div>
+      <div id="map"></div>
+    </fieldset>
+  </body>
+  <footer>
+    <nav class="footerNav">
+      <a href="{% url 'contactUs' %}">Contact Us</a>
+      <a href="{% url 'aboutUs' %}">About Us</a>
+      <a href="{% url 'ourStaff' %}">Our Staff</a>
+    </nav>
+  </footer>
+</html>

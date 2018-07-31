@@ -1,0 +1,525 @@
+/* RESET */
+*{
+  margin: 0;
+  padding: 0;
+}
+
+label{
+  margin: 1%;
+}
+
+img{
+  display: block;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+
+nav a{
+  margin-left: 4%;
+  color: white;
+  font-family: baltica, sans-serif;
+  /* font-family: cantoni-pro, serif; */
+  font-style: normal;
+  /* font-weight: 400; */
+  font-size: 15pt;
+  text-decoration: none;
+  transition: all .4s ease-in-out;
+}
+
+.mainMenuNav a:hover{
+  text-decoration: none;
+  color: darkgreen;
+  /* color: #e7ffb9; */
+  transform: scale(1.1);
+  font-size: 17pt;
+}
+
+nav a:hover{
+  text-decoration: none;
+  color: darkgreen;
+  /* color: #e7ffb9; */
+  /* transform: scale(1.1);
+  font-size: 17pt; */
+}
+
+header, .mainHeader{
+  overflow:auto;
+  margin-top: 3%;
+  background-color: yellowgreen;
+  /* background-color: #63665c; */
+  /* background: -moz-linear-gradient(-45deg, #59adeb 0%, #42c2b5 52%, #34ce93 100%);
+  background: -webkit-linear-gradient(-45deg, #59adeb 0%, #42c2b5 52%, #34ce93 100%); */
+  /* Chrome10-25,Safari5.1-6 */
+  /* background: linear-gradient(222deg, #9acd32, #73c561, #1652b7, #156990);
+background-size: 800% 800%;
+
+-webkit-animation: AnimationName 8s ease infinite;
+-moz-animation: AnimationName 8s ease infinite;
+animation: AnimationName 8s ease infinite; */
+
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:97% 0%}
+    50%{background-position:4% 100%}
+    100%{background-position:97% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:97% 0%}
+    50%{background-position:4% 100%}
+    100%{background-position:97% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:97% 0%}
+    50%{background-position:4% 100%}
+    100%{background-position:97% 0%}
+}
+
+
+header{
+  margin-top: 5%;
+}
+
+footer{
+  display: block;
+  margin: 0 auto;
+  margin-top: 3%;
+  text-align: center;
+  padding-top: 1%;
+  background-color: yellowgreen;
+  /* background-color: #63665c; */
+}
+
+table {
+    font-family: baltica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr{
+  background-color: white;
+}
+
+tr:nth-child(1) {
+    background-color: yellowgreen;
+}
+
+tr:nth-child(even) {
+    /* background-color: #ebf0f6; */
+    background-color: #f1f2eb;
+}
+
+video{
+  max-width: 100%;
+}
+
+.menuHeader{
+  margin-bottom: 8%;
+}
+
+.mainDivider{
+  margin: 1%;
+  margin-top: 7%;
+  box-shadow: 2px 2px 3px lightgrey;
+}
+
+.mainHeaderImg{
+  width: 75%;
+  margin-top: 0;
+}
+
+.headerImg{
+  width: 22%;
+  margin-top: -4%;
+  margin-left: 2%;
+  position: absolute;
+  display: inline-block;
+  background-color: yellowgreen;
+  /* background: linear-gradient(222deg, #9acd32, #73c561, #16b771, #156990);
+background-size: 800% 800%;
+
+-webkit-animation: AnimationName 8s ease infinite;
+-moz-animation: AnimationName 8s ease infinite;
+animation: AnimationName 8s ease infinite; */
+  border: 6px solid #fff;
+  border-radius: 7pc;
+
+}
+
+.videoDiv{
+  display: block;
+  margin: 0 auto;
+  margin-top: 4%;
+  max-height: 500px;
+}
+
+.registerLegend {
+    margin-left: 20px;
+    margin-top: -10px;
+    color: black;
+    width: 105px;
+    padding: 10px;
+    font-style: italic;
+}
+
+.signupLegend, .loginLegend{
+  margin-left: 5%;
+  /* margin-top: -1%; */
+  color: #2ab315;
+  width: 17%;
+  padding: 0;
+  padding-left: 2%;
+  font-style: italic;
+  background-color: white;
+  border-radius: 1pc;
+  z-index: 5;
+  font-family: le-monde-livre-classic-std-s, sans-serif;
+  font-size: 21pt;
+  box-shadow: 2px 2px 5px black;
+}
+
+.loginLegend {
+  width: 31%;
+  padding-left: 5%;
+}
+
+.registerFieldset, .loginFieldset, .signupFieldset {
+  margin: 20px;
+  margin-top: 48px;
+  margin-left: 25%;
+  width: 325px;
+  display: inline-block;
+  /* border: 3px solid black; */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f1f4f6;
+  border: 3px solid #c9c8c9;
+  box-shadow: 2px 2px 5px black;
+}
+
+.signupFieldset{
+  width: 59%;
+  margin-left: 8%;
+  margin-top: 0;
+}
+
+.loginFieldset{
+  margin-left: 2%;
+  vertical-align: top;
+  margin-top: 0;
+}
+
+.signupFieldset label{
+  width: 18%;
+}
+
+.footerNav{
+  display: block;
+  margin: 0 auto;
+}
+
+.mainMenuNav{
+  display: block;
+  margin: auto;
+  /* width: 60%; */
+  padding-bottom: 1%;
+  text-align: center;
+}
+
+.menuNav{
+  display: inline-block;
+  width: 75%;
+  padding: 2%;
+  margin-left: 25%;
+}
+
+.pets{
+  max-width: 100%;
+}
+
+.mission, .registerMainDiv, .volunteerMission {
+  margin-top: 10%;
+  margin-left: 8%;
+  width: 72%;
+  border-radius: 5px;
+  background-color: #f8f6f6;
+  box-shadow: 2px 2px 3px lightgrey;
+  padding: 1%;
+}
+
+.mission h1::first-letter, .registerMainDiv h1::first-letter, .volunteerMission h1::first-letter{
+  color: yellowgreen;
+}
+
+.registerMainDiv{
+  width: 75%;
+  margin-left: 10%;
+}
+
+.mainH1, .mission h1, .animalPDiv h1, .registerMainDiv h1, .volunteerMission h1{
+  font-family: cantoni-pro, serif;
+  font-size: 4.5rem;
+}
+
+.registerPDiv h1{
+  display: inline-block;
+}
+
+.mainH1{
+  display: block;
+  margin: auto;
+  margin-top: 5%;
+  /* margin-left: 38%; */
+  padding: 5%;
+  background-color: #5f880f;
+  text-align: center;
+  color: white;
+}
+
+.mission p, .registerMainDiv, .volunteerMission p{
+  font-family: baltica, sans-serif;
+  font-size: 1.1rem;
+}
+
+.missionPDiv, .animalPDiv{
+  display: inline-block;
+  width: 67%;
+}
+
+.picContainer{
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+.animalPDiv{
+  width: 100%;
+  height: 180px;
+  /* border-radius: 1pc; */
+  background-color: #f8f6f6;
+  padding: 2%;
+  padding-left: 4%;
+  /* margin-left: 29%; */
+  display: block;
+}
+
+.animalPDiv{
+  font-family: baltica, sans-serif;
+}
+
+.animalPicDiv a{
+  color: white;
+  margin: 3%;
+  text-decoration: none;
+}
+
+.animalPicDiv a:hover{
+  color: #5f880f;
+  text-decoration: none;
+}
+
+.animalPicDiv{
+  margin: 1%;
+  margin-top: 4%;
+  width: 27%;
+  /* background-color: yellowgreen; */
+  background-color: #c5ec76;
+  /* background-color: #a8c965; */
+  border-radius: 1pc;
+  box-shadow: 2px 2px 5px grey;
+  display: inline-block;
+  vertical-align: top;
+  height: 528px;
+}
+
+.pic{
+  width: 350px;
+  height: 325px;
+}
+
+.smallPic{
+  width: 220px;
+  display: inline-block;
+  margin-bottom: 1%;
+  text-align: center;
+}
+
+.pic img, .smallPic img{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.smallPic img{
+  border-radius: 1pc;
+  box-shadow: 2px 2px 5px black;
+}
+
+.donationContainer {
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+
+.alert-danger{
+  text-align: center;
+}
+
+.allAnimalDiv{
+  width: 95%;
+  margin: auto;
+  padding: 1%;
+  background-color: white;
+  border-radius: 1pc;
+}
+
+.allAnimalScroll{
+  border: 1px solid #000;
+  border-radius: 1pc;
+  padding: 1%;
+  overflow: scroll;
+  width: 75%;
+  margin: auto;
+  height: 500px;
+  /* padding-top: 3%; */
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.allAnimalScroll h1{
+  padding: 3%;
+  font-family: cantoni-pro, serif;
+  font-size: 4rem;
+}
+
+.allAnimalScroll h1::first-letter{
+  color: yellowgreen;
+}
+
+.animalDetailsDiv{
+  display: inline-block;
+  vertical-align: top;
+  margin: 1%;
+  border: 1px solid grey;
+  box-shadow: 3px 3px 5px black;
+  width: 73%;
+}
+
+.editAnimalDiv{
+  margin: 4%;
+}
+
+#registerPic{
+  width: 44%;
+  margin-bottom: 1%;
+  vertical-align: middle;
+  display: inline-block;
+  margin-left: 5%;
+  margin-top: -15%;
+}
+
+#animalPic{
+  /* width: 100%; */
+  display: block;
+  margin-left: 0%;
+  margin-top: 0%;
+  max-height: 325px;
+  border-top-left-radius: 1pc;
+  border-top-right-radius: 1pc;
+}
+
+#missionPic{
+  width: 26%;
+  display: inline-block;
+  margin-left: 1%;
+  border-radius: 5px;
+  position: absolute;
+  margin-top: 0px;
+}
+
+#nonProfitPic{
+  position: absolute;
+  width: 9%;
+  margin-top: -19%;
+  margin-left: 31%;
+}
+
+#title{
+  margin: 0%;
+  font-size: 35pt;
+  font-family: alisha, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px #000000;
+  display: inline-block;
+  background-color: white;
+  border-radius: 47px;
+  padding: 9px;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+#donationPic{
+  width: 12%;
+  margin-top: 3%;
+}
+
+#donationText{
+  font-style: italic;
+  margin: auto;
+  background-color: yellowgreen;
+  border-radius: 5pc;
+  padding: 1%;
+  width: 11%;
+  text-align: center;
+}
+
+#pets{
+  width: 75%;
+  margin-top: 0;
+}
+
+#a_tagDonationPic{
+  color: white;
+}
+
+#mapAddressButton{
+  position: absolute;
+  margin-top: -9%;
+  margin-left: 43%;
+  z-index: 5;
+  padding: 0.9%;
+  text-align: center;
+}
+
+#signupButton, #loginButton{
+  background-color: yellowgreen;
+  color: white;
+  border-radius: 1pc;
+  margin-left: 2%;
+  box-shadow: 2px 2px 5px black;
+}
+
+#signupButton{
+  width: 15%;
+  margin: auto;
+  margin-top: 2%;
+  display: block;
+}
+
+#loginButton{
+  width: 28%;
+}
+
+#editAnimal{
+  background-color: yellowgreen;
+  color: white;
+  padding: 3%;
+  border-radius: 1pc;
+  box-shadow: 2px 2px 5px black;
+}

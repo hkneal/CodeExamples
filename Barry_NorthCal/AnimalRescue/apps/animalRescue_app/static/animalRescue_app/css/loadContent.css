@@ -1,0 +1,53 @@
+/* RESET */
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.loginFieldset, .signupFieldset {
+  display: inline-block;
+  box-shadow: 2px 2px 5px black;
+  width: 44%;
+  margin-left: 8%;
+}
+
+.signupLegend, .loginLegend{
+  width: 37%;
+  margin-left: 5%;
+  color: #2ab315;
+  padding-left: 2%;
+  background-color: white;
+  border-radius: 1pc;
+  z-index: 5;
+  font-family: le-monde-livre-classic-std-s, sans-serif;
+  font-size: 21pt;
+  box-shadow: 2px 2px 5px black;
+}
+
+.loginLegend {
+  width: 61%;
+  padding-left: 5%;
+}
+
+.loginFieldset{
+  width: 27%;
+  margin-left: 2%;
+  vertical-align: top;
+}
+
+.signupFieldset label{
+  width: 25%;
+}
+
+.signupFieldset input{
+  width: 50%;
+}
+
+#signupButton{
+  display: block;
+  width: 25%;
+}
+
+#loginButton{
+  width: 43%;
+}

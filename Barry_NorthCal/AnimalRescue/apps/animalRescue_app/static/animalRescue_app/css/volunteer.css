@@ -1,0 +1,29 @@
+/* RESET */
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.volunteerMission{
+  margin-top: 7%;
+  width: 65%;
+  margin-bottom: 13%;
+}
+
+.missionPDiv{
+  width: 75%;
+}
+
+#volunteerPic{
+  width: 19%;
+  display: inline-block;
+  margin-left: 1%;
+  border-radius: 5px;
+  position: absolute;
+  margin-top: 0px;
+  box-shadow: 2px 2px 3px lightgrey;
+}
+
+#nonProfitPic{
+  margin-left: 36%;
+}

@@ -1,0 +1,89 @@
+/*RESET */
+*{
+  margin: 0;
+  padding: 0;
+}
+
+label{
+  width: 35%;
+  /* font-family: baltica, sans-serif; */
+}
+
+.registerLegend{
+    margin-left: 5%;
+    /* margin-top: -1%; */
+    color: #2ab315;
+    width: 27%;
+    padding: 0;
+    padding-left: 1%;
+    font-style: italic;
+    background-color: white;
+    border-radius: 1pc;
+    z-index: 5;
+    font-family: le-monde-livre-classic-std-s, sans-serif;
+    font-size: 21pt;
+}
+
+.registerFieldset{
+  margin: 20px;
+  margin-top: 48px;
+  margin-left: 14%;
+  width: 68%;
+  display: inline-block;
+  /* border: 3px solid black; */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f1f4f6;
+  border: 3px solid #c9c8c9;
+  padding-bottom: 4%;
+}
+
+.formDiv{
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+  height: 90%;
+}
+
+#map{
+  width: 49%;
+  display: inline-block;
+}
+
+#id_location, #id_name, #id_description{
+  width: 58%;
+}
+
+#id_description{
+  margin-top: 16%;
+  vertical-align: baseline;
+}
+
+#id_type{
+  width: 26%;
+}
+
+#submit{
+  position: absolute;
+  margin-top: -17.5%;
+  margin-left: 16%;
+  width: 10%;
+  box-shadow: 2px 2px 5px black;
+}
+
+#submit:hover{
+  background-color: yellowgreen;
+  color: white;
+}
+
+#registerButton{
+  position: absolute;
+  display: block;
+  margin-top: 1%;
+  margin-left: 12%;
+  width: 10%;
+  border-radius: 1pc;
+  background-color: yellowgreen;
+  color: white;
+  box-shadow: 2px 2px 5px black;
+}

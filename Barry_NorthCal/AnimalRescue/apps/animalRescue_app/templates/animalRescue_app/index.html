@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+  <head>
+    <meta charset="utf-8">
+    <title>Index</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'animalRescue_app/css/main.css' %}" media="screen" title="no title"  charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.typekit.net/hnw2qge.css">
+    <script>
+    (function(d) {
+      var config = {
+        kitId: 'hnw2qge',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=2"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    .fa {
+      padding: 10px;
+      font-size: 20px;
+      width: 50px;
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+    }
+
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+    .fa-facebook {
+      background: #3B5998;
+      color: white;
+    }
+
+    .fa-twitter {
+      background: #55ACEE;
+      color: white;
+    }
+
+    .fa-google {
+      background: #dd4b39;
+      color: white;
+    }
+
+    .fa-linkedin {
+      background: #007bb5;
+      color: white;
+    }
+
+    .fa-youtube {
+      background: #bb0000;
+      color: white;
+    }
+
+    .fa-instagram {
+      background: #125688;
+      color: white;
+    }
+
+    .fa-pinterest {
+      background: #cb2027;
+      color: white;
+    }
+
+    .fa-snapchat-ghost {
+      background: #fffc00;
+      color: white;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
+    </style>
+  </head>
+  <body>
+    <header class="mainHeader">
+      <a href="{% url 'home' %}">
+        <img class="mainHeaderImg" src="{% static 'uploads/logo.png'%}" alt="">
+        <!-- <h1 id="title">North California Animal Rescue</h1> -->
+      </a>
+      <nav class="mainMenuNav">
+        <!-- <a href="{% url 'home' %}">Home</a> -->
+        <a href="{% url 'adoptaPet' %}">Adopt a Pet</a>
+        <a href="{% url 'volunteer'%}">Volunteer</a>
+        <a href="{% url 'donate' %}">Donate</a>
+        <a href="{% url 'registerAnimal' %}">Register an Animal</a>
+        <a href="{% url 'successStories'%}">Success Stories</a>
+        {% if loggedIn %}
+          <a href="{% url 'logoutUser' %}">Logout</a>
+        {% endif %}
+        {% if auth_for_edit %}
+          <a href="{% url 'viewAllAnimals' %}">View all Animals</a>
+          <a href="{% url 'loadAnyContent' %}">Load Content</a>
+        {% endif %}
+      </nav>
+      {% if error_message %}
+        <div class="alert alert-danger" role="alert">
+          {{ error_message }}
+        </div>
+      {% endif %}
+      {% if success_message %}
+        <div class="alert alert-success" role="alert">
+          {{ success_message }}
+        </div>
+      {% endif %}
+    </header>
+    <div class="mission">
+      <div class="missionPDiv">
+        <h1>Our Mission Goals</h1>
+        <p>We are a nonprofit organization that takes unwanted, abandoned, abused, or stray pets and attempt to find suitable homes for them. We are created by and run by volunteers, who take the animals into their homes and care for them (training, playing, handling medical issues, and solving behavior problems) until a suitable permanent homes can be found.</p>
+      </div>
+      <a href="{% url 'volunteer' %}"><img id="nonProfitPic" src="{% static 'uploads/Fotosearch_k35453212.jpg' %}" alt=""></a>
+      <!-- <div class="videoDiv"> -->
+        <!-- <video id="missionPic" loop autoplay> <source src="{% static 'uploads/cat_meds.mp4' %}" type="video/mp4"></video> -->
+      <!-- </div> -->
+      <img id="missionPic" src="{% static 'uploads/Fotosearch_k0209407.jpg' %}" alt="">
+    </div>
+    <!-- <div class="videoDiv">
+      <video class="normalView" loop autoplay> <source src="{% static 'uploads/My_Movie2.mp4' %}" type="video/mp4"></video>
+    </div> -->
+    <hr class="mainDivider">
+    <h1 class="mainH1">Current Rescues</h1>
+    <div class="picContainer">
+    {% for animal in all_Animals %}
+      {% if animal.viewable %}
+        <div class="animalPicDiv">
+          <div class="pic">
+            <img id="animalPic" src="{{ animal.image.url }}" alt="">
+          </div>
+
+          <div class="animalPDiv">
+            <h1>{{ animal.name }}</h1>
+            <p>{{ animal.description }}</p>
+          </div>
+          {% if auth_for_edit %}
+            <a href="{% url 'update_animal' animal.id %}">Edit Details</a>
+            <a href="{% url 'delete_animal' animal.id %}">Delete</a>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+    </div>
+    <div class="donationContainer">
+      <a id='a_tagDonationPic' href="{% url 'donate' %}"><img id='donationPic' src="{% static 'uploads/Fotosearch_k23265149.jpg' %}" alt="">
+      <p id="donationText">Click to Donate!</p></a>
+    </div>
+  </body>
+  <footer>
+    <nav class="footerNav">
+      <a href="{% url 'contactUs' %}">Contact Us</a>
+      <a href="{% url 'aboutUs' %}">About Us</a>
+      <a href="{% url 'ourStaff' %}">Our Staff</a>
+    </nav>
+    <a href="#" class="fa fa-facebook"></a>
+    <a href="#" class="fa fa-twitter"></a>
+    <a href="#" class="fa fa-google"></a>
+    <a href="#" class="fa fa-linkedin"></a>
+    <a href="#" class="fa fa-youtube"></a>
+    <a href="#" class="fa fa-instagram"></a>
+    <a href="#" class="fa fa-pinterest"></a>
+    <a href="#" class="fa fa-snapchat-ghost"></a>
+    <!-- Fotosearch --><a href="http://www.fotosearch.com">
+(c) damedeeso www.fotosearch.com Stock Photography
+</a>
+  </footer>
+</html>

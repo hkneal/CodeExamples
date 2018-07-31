@@ -1,0 +1,101 @@
+/*RESET */
+*{
+  margin: 0;
+  padding: 0;
+}
+
+label{
+  width: 35%;
+}
+
+.registerFieldset{
+  margin: auto;
+  margin-top: 2%;
+  width: 85%;
+  display: block;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f1f4f6;
+  border: 3px solid #c9c8c9;
+  box-shadow: 2px 2px 5px black;
+  padding-bottom: 4%;
+}
+
+.registerLegend{
+    margin-left: 5%;
+    color: #2ab315;
+    width: 20%;
+    padding: 0;
+    padding-left: 1%;
+    font-style: italic;
+    background-color: white;
+    border-radius: 1pc;
+    z-index: 5;
+    font-family: le-monde-livre-classic-std-s, sans-serif;
+    font-size: 21pt;
+    box-shadow: 2px 2px 5px black;
+    margin-top: 0;
+}
+
+.formDiv{
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+  height: 90%;
+}
+
+#map{
+  width: 49%;
+  display: inline-block;
+}
+
+#id_location, #id_name, #id_description{
+  width: 58%;
+}
+
+#id_description{
+  margin-top: 16%;
+  vertical-align: baseline;
+}
+
+#id_type{
+  width: 26%;
+}
+
+#submit{
+  position: absolute;
+  margin-top: -25.5%;
+  margin-left: 20%;
+  width: 10%;
+  box-shadow: 2px 2px 5px black;
+}
+
+#submit:hover{
+  background-color: yellowgreen;
+  color: white;
+}
+
+#registerButton{
+  position: absolute;
+  display: block;
+  margin-top: 1%;
+  margin-left: 12%;
+  width: 10%;
+  border-radius: 1pc;
+  background-color: yellowgreen;
+  color: white;
+  box-shadow: 2px 2px 5px black;
+}
+
+#id_adoption_ready, #id_foster_ready, #id_viewable{
+  margin-right: 28%;
+}
+
+#animalPic{
+  display: block;
+  margin: 0 auto;
+  max-height: 325px;
+  border-top-left-radius: 1pc;
+  border-top-right-radius: 1pc;
+  box-shadow: 2px 2px 5px black;
+}

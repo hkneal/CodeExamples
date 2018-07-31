@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+  <head>
+    <meta charset="utf-8">
+    <title>Signup</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'animalRescue_app/css/main.css' %}" media="screen" title="no title"  charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.typekit.net/hnw2qge.css">
+    <script>
+  (function(d) {
+    var config = {
+      kitId: 'hnw2qge',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+  </script>
+  </head>
+  <body>
+    <header class="menuHeader">
+      <a href="{% url 'home' %}">
+        <img class="headerImg" src="{% static 'uploads/logo1.png' %}" alt="">
+        <!-- <h1 id="title">North California Animal Rescue</h1></a> -->
+      <nav class="menuNav">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'adoptaPet' %}">Adopt a Pet</a>
+        <a href="{% url 'volunteer'%}">Volunteer</a>
+        <a href="{% url 'donate' %}">Donate</a>
+        <a href="{% url 'registerAnimal' %}">Register an Animal</a>
+        <a href="{% url 'successStories'%}">Success Stories</a>
+      </nav>
+    </header>
+    {% if error_message %}
+      <div class="alert alert-danger" role="alert">
+        {{ error_message }}
+      </div>
+    {% endif %}
+    {% if success_message %}
+      <div class="alert alert-success" role="alert">
+        {{ success_message }}
+      </div>
+    {% endif %}
+    {% block content %}
+    <fieldset class="signupFieldset">
+      <legend class="signupLegend">Sign Up</legend>
+        <form action="{% url 'signup' return_site %}" method="post">
+          {% csrf_token %}
+            {% for field in signupForm %}
+              {{ field.label_tag }}
+              {{ field }}
+              {% if field.help_text %}
+                <small style="display: none">{{ field.help_text }}</small>
+              {% endif %}
+              {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+              {% endfor %}
+            {% endfor %}
+          <button id="signupButton" type="submit">Sign up</button>
+        </form>
+    </fieldset>
+    <fieldset class="loginFieldset">
+      <legend class="loginLegend">Login</legend>
+        <form action="{% url 'loginUser' return_site %}" method="post">
+          {% csrf_token %}
+            {% for field in loginForm %}
+            <p>
+              {{ field.label_tag }}<br>
+              {{ field }}
+              {% if field.help_text %}
+                <small style="display: none">{{ field.help_text }}</small>
+              {% endif %}
+              {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+              {% endfor %}
+            </p>
+            {% endfor %}
+          <button id="loginButton" type="submit">Login</button>
+        </form>
+    </fieldset>
+    {% endblock %}
+    <div class="pets">
+      <!-- <img id='pets' src="{% static 'uploads/Fotosearch_k8962796.jpg' %}" alt=""> -->
+      <!-- <img id='pets' src="{% static 'uploads/Fotosearch_k21948644.jpg' %}" alt=""> -->
+    </div>
+  </body>
+  <footer>
+    <nav class="footerNav">
+      <a href="{% url 'contactUs' %}">Contact Us</a>
+      <a href="{% url 'aboutUs' %}">About Us</a>
+      <a href="{% url 'ourStaff' %}">Our Staff</a>
+    </nav>
+  </footer>
+</html>
