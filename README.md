@@ -5,7 +5,11 @@
 
 # Example of a coding test:  
     back_end_take_home%20(1).md  - Description of Test  
-    GetImages.py     
+    GetImages.py 
+
+# Java Coding Example:  
+    validationTest.txt - Description of the Test
+    Validation_Test - Source Code  
     
 # UI coding Test:  
     Digital Business UI Tech Challenge.pdf - Challenge description  
