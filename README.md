@@ -1,7 +1,5 @@
 # CodeExamples
 
-# Description
-
 # Websites:  
 NotesApp - <https://www.inputmynote.com>  
 Barry_NorthCal - <http://54.175.179.185>  (Work in progress)   
