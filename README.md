@@ -1,7 +1,7 @@
 # CodeExamples
 
 # Websites:  
-NotesApp - <https://www.inputmynote.com>  
+NotesApp - <https://inputmynote.com>  
 Barry_NorthCal - <http://54.175.179.185>  (Work in progress)   
 My Portfolio page - <http://www.hiramneal.com>
 
