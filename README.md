@@ -1,8 +1,8 @@
 # CodeExamples
 
 # Websites:  
-NotesApp - <https://inputmynote.com>                            - Python 3.6/Django 2.1, MySQL 8.0.12
-Barry_NorthCal - <http://54.175.179.185>  (Work in progress)    - Python 2.7/Django 1.11   
+NotesApp - <https://inputmynote.com>                            - Python 3.6/Django 2.1, MySQL 8.0.12  
+Animal Rescue filename(Barry_NorthCal) - <http://54.175.179.185>  (Work in progress)    - Python 2.7/Django 1.11   
 My Portfolio page - <http://www.hiramneal.com>                  - Angualar 4.4.6, Express 4.13.4, Node 8.8.1
 
 # Python coding:  
